@@ -783,11 +783,47 @@
 		@endif
 	<!--end viewing validation error msg -->
 
+
+
+		<!-- viewing validation error msg -->
+		@if ($errors->any())
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
+	 <!--end viewing validation error msg
+t
 	---------------------------------------------------------------------------------------------------------------------------
- 	  //1.for success message...
+ 	  //view error message in form field...
 	---------------------------------------------------------------------------------------------------------------------------
-	   //for success message by me
-		@if(Session::has('message'))
+	 <div class="form-group row {{$errors->has('percentage') ? 'has-error' : ''}}">//will add class has-error
+		{{ Form::text('percentage',null,['class'=>'form-control']) }}
+
+		@if($errors->has('percentage'))
+			<span class="help-block">
+			{{ $errors->first('percentage') }} //will shwo error msg
+			</span>
+		@endif
+	</div>
+
+
+
+
+
+
+
+
+
+
+                        ---------------------------------------------------------------------------------------------------------------------------
+                           //1.for success message...
+                        ---------------------------------------------------------------------------------------------------------------------------
+                           //for success message by me
+@if(Session::has('message'))
 		{{ Session::get('message') }}
 		<!-- to unset/remove session data after showing -->
 		{{ Session::put('message',null) }}
