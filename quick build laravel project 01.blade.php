@@ -1923,3 +1923,28 @@ Route::get('/user-data', function(){
 
 
 
+                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    ===========================================================================================================================
+                    #20. show and hide success message with jquery                    ===========================================================================================================================
+{{--//showing success message ....--}}
+<div class="col-md-6 showSucMessage">
+    @if (session('success'))
+        <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session('success') }}
+        </div>
+    @endif
+</div>
+
+//This function is for to hide success message
+function hideSuccessMessage(){
+    //$('.showSucMessage').fadeOut(2000);
+    $('.showSucMessage').fadeOut(2000);
+    }
+
+    setTimeout(function(){
+    hideSuccessMessage();
+    }, 1000);
+// -------------------------
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
